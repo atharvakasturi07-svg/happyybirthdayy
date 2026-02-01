@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Decorations -->
+    <div class="decoration cake-emoji">🎂</div>
+    <div class="decoration star-emoji">⭐</div>
+    <div class="decoration heart-emoji">💕</div>
+    <div class="decoration cloud-emoji">☁️</div>
+    <div class="decoration gift-emoji">🎁</div>
+    <div class="decoration hello-kitty-emoji">🎀</div>
+    <div class="decoration pink-heart">💗</div>
+    <div class="decoration flower-emoji">🌸</div>
+    <div class="decoration purple-star">⭐</div>
+    <div class="decoration pink-square">🟥</div>
+    <div class="decoration pink-heart2">💗</div>
+    <div class="decoration purple-diamond">💎</div>
+    <div class="decoration firework-emoji">🎉</div>
+    <div class="decoration small-heart">💕</div>
+    <div class="decoration pink-balloon">🎈</div>
+
+    <div class="container">
+        <!-- Page 1: Welcome -->
+        <div class="page active" id="page1">
+            <div class="welcome-card">
+                <div class="window-controls">
+                    <div class="window-control control-red"></div>
+                    <div class="window-control control-yellow"></div>
+                    <div class="window-control control-green"></div>
+                </div>
+                <div class="header-title">Happy Birthday!</div>
+                <div class="hello-kitty-corner">🐱</div>
+                <div class="cat-party">🐱🎉</div>
+                
+                <h1>Happy Birthday,<br>Beautiful! 🎂 ✨</h1>
+                
+                <p class="welcome-text">
+                    Today is all about celebrating the most amazing person in my<br>
+                    world. I've created something magical just for you on your<br>
+                    special day...
+                </p>
+                
+                <p class="ready-text">Ready for your birthday surprise?</p>
+                
+                <button class="btn" onclick="nextPage(2)">Let's Gooo</button>
+                
+                <p class="footer-text">Made with endless love for your special day 💕</p>
+            </div>
+        </div>
+
+        <!-- Page 2: Cake Cutting -->
+        <div class="page" id="page2">
+            <div class="cake-page">
+                <h2 class="page-title">It's Cake Time! 🎂</h2>
+                <p class="page-subtitle">Make your birthday wish come true!</p>
+                
+                <div class="cake-card">
+                    <h3 class="cake-title">Cut your birthday cake, birthday girl! 🔪</h3>
+                    <p class="cake-instruction">Draw a line across the middle of the cake to cut it 🎀</p>
+                    
+                    <p class="progress-text" id="cuttingProgress">Cutting Progress: 0%</p>
+                    <p class="knife-drag-text">Drag here to cut! 🎀</p>
+                    
+                    <div class="cake-container">
+                        <div class="cake">
+                            <div class="cake-layer layer-top">
+                                <div class="candle">
+                                    <div class="flame"></div>
+                                </div>
+                                <div class="frosting frosting-1"></div>
+                                <div class="frosting frosting-2"></div>
+                                <div class="frosting frosting-3"></div>
+                            </div>
+                            <div class="cake-layer layer-middle"></div>
+                            <div class="cake-layer layer-bottom"></div>
+                            <div class="cake-plate"></div>
+                            <div class="cut-line" id="cutLine"></div>
+                        </div>
+                        <div class="knife" id="knife"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Wish Making -->
+        <div class="page" id="page3">
+            <div class="cake-page">
+                <h2 class="page-title">It's Cake Time! 🎂</h2>
+                <p class="page-subtitle">Make your birthday wish come true!</p>
+                
+                <div class="cake-card">
+                    <div class="wish-animation">
+                        <span class="hello-kitty-wish">🐱✨</span>
+                        <span class="cake-icon">🎂</span>
+                    </div>
+                    
+                    <h3 class="wish-title">Time to Make a Wish! ✨</h3>
+                    <p class="wish-instruction">Close your eyes and make your birthday wish! 🌟</p>
+                    <p class="wish-subtext">Think of something wonderful for your new year!</p>
+                    
+                    <button class="btn" onclick="nextPage(4)">I've Made My Wish! 💫</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: Music Playlist -->
+        <div class="page" id="page4">
+            <div class="cake-page">
+                <h2 class="page-title">Birthday Vibes Playlist 🎵</h2>
+                <p class="page-subtitle">Songs to celebrate your special day</p>
+                
+                <div class="music-content">
+                    <div class="music-player">
+                        <div class="now-playing">
+                            <div class="album-art">🎵</div>
+                            <div class="song-info">
+                                <div class="song-title" id="currentSongTitle">Sailor Song</div>
+                                <div class="song-description" id="currentSongDesc">Sailing through life with you 🌊</div>
+                            </div>
+                            <div class="play-btn" id="playBtn" onclick="togglePlay()">▶</div>
+                        </div>
+                        <div class="progress-bar">
+                            <span class="time" id="currentTime">0:00</span>
+                            <div class="progress" id="progressBar" onclick="seekAudio(event)">
+                                <div class="progress-fill" id="progressFill">
+                                    <div class="progress-handle"></div>
+                                </div>
+                            </div>
+                            <span class="time" id="duration">0:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist">
+                        <div class="playlist-item" onclick="changeSong(0)">
+                            <div class="playlist-image">⛵</div>
+                            <div class="playlist-title">Sailor Song</div>
+                            <div class="playlist-subtitle">Sailing through life<br>with you 🌊</div>
+                        </div>
+                        <div class="playlist-item" onclick="changeSong(1)">
+                            <div class="playlist-image">💕</div>
+                            <div class="playlist-title">Her</div>
+                            <div class="playlist-subtitle">Every moment feels<br>like magic 💫</div>
+                        </div>
+                        <div class="playlist-item" onclick="changeSong(2)">
+                            <div class="playlist-image">🌍</div>
+                            <div class="playlist-title">If the world was ending...</div>
+                            <div class="playlist-subtitle">Every beat celebrates your<br>beautiful heart 💗</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn" onclick="nextPage(5)">Continue to Birthday Surprises ✨</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 5: Birthday Cards -->
+        <div class="page" id="page5">
+            <div class="cake-page">
+                <h2 class="page-title">Birthday Wishes Cards 🎁</h2>
+                <p class="page-subtitle">Click each card to reveal a birthday message!</p>
+                
+                <div class="cards-grid">
+                    <div class="birthday-card" onclick="revealCard(this, 0)">
+                        <div class="card-image">💗</div>
+                        <div class="open-indicator">Open!</div>
+                        <div class="card-overlay">
+                            <p class="card-message">Happy Birthday to the girl who makes every day feel like a celebration! 🎉 💕</p>
+                        </div>
+                    </div>
+                    <div class="birthday-card" onclick="revealCard(this, 1)">
+                        <div class="card-image">🐱</div>
+                        <div class="open-indicator">Open!</div>
+                        <div class="card-overlay">
+                            <p class="card-message">You're sweeter than any birthday cake, more precious than any gift! 🎂 💝</p>
+                        </div>
+                    </div>
+                    <div class="birthday-card" onclick="revealCard(this, 2)">
+                        <div class="card-image">💖</div>
+                        <div class="open-indicator">Open!</div>
+                        <div class="card-overlay">
+                            <p class="card-message">May this new year bring you endless joy, love, and all the dreams your heart desires! 💫</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-indicator" id="cardProgress">
+                    <span id="cardsOpened">0</span> of 3 birthday wishes unlocked! Keep going 🎉
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="cardProgressBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 6: Final Letter -->
+        <div class="page" id="page6">
+            <div class="cake-page">
+                <h2 class="page-title">Final Birthday Letter</h2>
+                <p class="page-subtitle">A special message sealed with love 💕</p>
+                
+                <div class="letter-container">
+                    <div class="letter-header">
+                        <div class="letter-icon">💌</div>
+                        <div class="letter-title-text">Final Birthday Love Letter</div>
+                    </div>
+                    
+                    <div class="letter-paper">
+                        <div class="cat-decoration">🐱</div>
+                        <div class="hearts-decoration">💕</div>
+                        
+                        <p class="letter-text">My dearest girl,</p>
+                        <p class="letter-text">
+                            May this new year bring you everything your heart desires and more joy than you can imagine.
+                        </p>
+                        
+                        <p class="sealing-text">Sealing your birthday wishes...</p>
+                        
+                        <p class="letter-text">
+                            Happy Birthday, my love. You deserve the world and so much more. 💝 ✨
+                        </p>
+                        
+                        <div class="letter-buttons">
+                            <button class="btn" onclick="completeBirthday()">Seal 💌</button>
+                            <button class="btn btn-secondary" onclick="nextPage(1)">Experience Again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for All Cards Unlocked -->
+    <div class="modal" id="allCardsModal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h3 class="modal-title">All Birthday Wishes Unlocked!</h3>
+            <p class="modal-text">Each wish carries my love and hopes for your amazing new year ahead. ✨</p>
+            <button class="btn" onclick="openFinalLetter()">Open Final Birthday Letter 💌</button>
+            <p class="modal-subtext">Enjoy the wishes a bit longer</p>
+        </div>
+    </div>
+
+    <!-- Modal for Completion -->
+    <div class="modal" id="completionModal">
+        <div class="modal-content">
+            <div class="modal-icon">💝</div>
+            <h3 class="modal-title">Birthday Wishes Sealed!</h3>
+            <p class="modal-text">Your birthday experience is complete. May all your wishes come true! ✨</p>
+            <p class="modal-text">Sealing will complete your birthday experience.</p>
+            <div class="letter-buttons">
+                <button class="btn" onclick="closeCompletionModal()">Seal 💌</button>
+                <button class="btn btn-secondary" onclick="replayExperience()">Experience Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio element for music -->
+    <audio id="audioPlayer"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
